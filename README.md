@@ -1,4 +1,4 @@
-# basilisk
+# archiveswurm
 
 Yet another implementation of the ArchivesSpace API in Python.
 
