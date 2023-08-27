@@ -1,5 +1,7 @@
 import json
+import requests
 from ..archivesspace import ArchivesSpace
+from ..models import FileVersion
 
 
 class DigitalObject(ArchivesSpace):
@@ -130,7 +132,7 @@ class DigitalObject(ArchivesSpace):
             badge_uri (str): The uri to image that represents the digital object.
 
         Returns:
-            dict: A message stating whether or not your badge update was successful or an error.
+            dict: A message stating whether your badge update was successful or an error.
 
         Examples
             >>> DigitalObject().add_badge(2, 2, "https://digital.lib.utk.edu/collections/islandora/object/knoxgardens%3A115/datastream/TN")
@@ -159,7 +161,7 @@ class DigitalObject(ArchivesSpace):
             digital_object_id (int): The id of your digital object.
 
         Returns:
-            dict: A message stating whether or not your delete was successful or an error.
+            dict: A message stating whether your delete was successful or an error.
 
         Examples:
             >>> DigitalObject(url="http://localhost:8089").create("Test", 2, file_versions=[FileVersion().add('http://localhost:8000/islandora/object/rfta:8')])
