@@ -1,3 +1,4 @@
 dist/*
 .idea/*
 archiveswurm/__pycache__/*
+run.py
