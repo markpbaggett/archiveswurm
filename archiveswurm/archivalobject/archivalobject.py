@@ -136,3 +136,40 @@ class ArchivalObject(ArchivesSpace):
             headers=self.headers,
         )
         return r.json()
+
+    def link_digital_object(
+        self, repo_id, archival_object_id, digital_object_id, is_representative=False
+    ):
+        """Link a digital object to an archival_object.
+
+        Args:
+            repo_id (int): The id of your repository.
+            archival_object_id (int): The id of your archival object.
+            digital_object_id (int): The id of your digital object.
+            is_representative (bool): Whether your digital object should be representative of the resource.
+
+        Returns:
+            dict: Success or error message with appropriate metadata.
+
+        Examples:
+            >>> ArchivalObject().link_digital_object(2, 18, 2)
+            {'status': 'Updated', 'id': 18, 'lock_version': 1, 'stale': None, 'uri': '/repositories/2/archival_object/18',
+            'warnings': []}
+
+        """
+        new_instance = {
+            "is_representative": is_representative,
+            "instance_type": "digital_object",
+            "jsonmodel_type": "instance",
+            "digital_object": {
+                "ref": f"/repositories/2/digital_objects/{digital_object_id}"
+            },
+        }
+        existing_collection = self.get(repo_id, archival_object_id)
+        existing_collection["instances"].append(new_instance)
+        r = requests.post(
+            url=f"{self.base_url}/repositories/{repo_id}/archival_objects/{archival_object_id}",
+            headers=self.headers,
+            data=json.dumps(existing_collection),
+        )
+        return r.json()
