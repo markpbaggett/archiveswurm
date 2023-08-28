@@ -1,5 +1,6 @@
 import json
 import requests
+from uuid import uuid4
 from ..archivesspace import ArchivesSpace
 from ..models import FileVersion
 
