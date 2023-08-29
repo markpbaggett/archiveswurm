@@ -8,6 +8,8 @@ readme = "README.md"
 keywords = [
     "ArchivesSpace",
 ]
+homepage = "https://github.com/markpbaggett/archiveswurm"
+repository = "https://github.com/markpbaggett/archiveswurm"
 
 [tool.poetry.dependencies]
 python = "^3.11"
