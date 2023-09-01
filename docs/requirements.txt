@@ -1,5 +1,4 @@
 alabaster==0.7.13
--e git+ssh://git@github.com/markpbaggett/archiveswurm.git@eab0cbcfda1c8b27b60b505a53dff2bca1982790#egg=archiveswurm
 Babel==2.12.1
 certifi==2023.7.22
 charset-normalizer==3.2.0
