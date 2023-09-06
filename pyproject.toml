@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "archiveswurm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Yet another Python implementation of the ArchivesSpace API"
 authors = ["Mark Baggett <mbagget1@utk.edu>"]
 license = "MIT License"
