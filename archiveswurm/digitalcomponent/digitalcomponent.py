@@ -97,16 +97,14 @@ class DigitalObjectComponent(ArchivesSpace):
             "is_slug_auto": False,
             "publish": publish,
             "position": position,
-            "title": title,
             "label": title,
+            "file_versions": file_versions,
             "digital_object": {
                 "ref": f'/repositories/{repo_id}/digital_objects/{digital_object}'
             },
         }
         for key, value in specified_properties.items():
             initial_data[key] = value
-        for file_version in file_versions:
-            initial_data["file_versions"].append(file_version)
         if parent:
             initial_data["parent"] = {
                 "ref": f"/repositories/{repo_id}/digital_object_components/{parent}"
