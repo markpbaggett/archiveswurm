@@ -203,5 +203,26 @@ class Resource(ArchivesSpace):
         )
         return r.json()
 
-    def update_a_resource(self):
-        return
+    def save(self, repo_id, resource_id):
+        """Update a resource without changing any data.
+
+        Args:
+            repo_id (int): The id of your repository.
+            resource_id (int): The id of your resource.
+
+        Returns:
+            dict: Success or error message with appropriate metadata.
+
+        Examples:
+            >>> Resource().save(2, 18)
+            {'status': 'Updated', 'id': 18, 'lock_version': 1, 'stale': None, 'uri': '/repositories/2/resources/18',
+            'warnings': []}
+
+        """
+        existing_resource = self.get(repo_id, resource_id)
+        r = requests.post(
+            url=f"{self.base_url}/repositories/{repo_id}/resources/{resource_id}",
+            headers=self.headers,
+            data=json.dumps(existing_resource),
+        )
+        return r.json()
