@@ -1,4 +1,5 @@
 from .accession import Accession
+from .agent import PersonAgent
 from .archivesspace import ArchivesSpace
 from .archivalobject import ArchivalObject
 from .digitalcomponent import DigitalObjectComponent
