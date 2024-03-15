@@ -226,3 +226,25 @@ class Resource(ArchivesSpace):
             data=json.dumps(existing_resource),
         )
         return r.json()
+
+    def fetch_tree(self, repo_id, resource_id):
+        """Fetch the tree of a resource.
+
+        Args:
+            repo_id (int): The id of your repository.
+            resource_id (int): The id of your resource.
+
+        Returns:
+            dict: A dict representing your resource tree.
+
+        Examples:
+            >>> Resource().fetch_tree(2, 18)
+            {'error': 'Resource not found'}
+
+        """
+        r = requests.get(
+            url=f"{self.base_url}/repositories/{repo_id}/resources/{resource_id}/tree",
+            headers=self.headers,
+        )
+        return r.json()
+
